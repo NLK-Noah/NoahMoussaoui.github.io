@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&family=Roboto+Condensed&display=swap');
+
+body {
+    padding: 0 2%;
+    margin: 0;
+    background-color: rgb(38,37, 37);
+} 
+
+nav {
+    font-family: 'Oswald', sans-serif;
+    margin-top: 0%;
+    padding: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(0, 0, 0);
+    position: sticky;
+    top: 0;
+    color: #fff;
+}
+
+nav .profile {
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+nav .profile:hover {
+    color: brown;
+}
+
+nav .profile img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transition: scale 0.5s;
+}
+
+nav .profile img:hover {
+    border-radius: 30%;
+    transform: scale(1.05);
+}
+
+nav .profile h1 {
+    color: #fff;
+    text-decoration: underline #000;
+    margin-left: 10px;
+    font-size: 15px;
+}
+
+nav ul{
+    display: flex;
+    list-style-type: none;
+    color: #fff;
+}
+
+nav ul a {
+    text-decoration: none;
+}
+
+nav ul li{
+margin-left: 20px;
+margin-right: 20px;
+cursor: pointer;
+border-bottom: 1px solid #fff ;
+transition: filter 0.5s;
+color: rgb(255, 255, 255);
+text-decoration: none;
+}
+
+nav ul li:hover {
+    border-bottom: 1px solid #000;
+    filter: brightness(130%);
+    color: brown;
+}
+
+form {
+    margin: 0px;
+    padding: 0px;
+    background-color: rgb(38, 37, 37);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10%;
+}
+
+form h1 {
+    font-size: 40px;
+}
+
+form .séparation {
+    width: 100%;
+    height: 1px;
+    background-color: brown;
+}
+
+form .corps-formulaire {
+    display: flex; 
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+form .corps-formulaire .groupe {
+    position: relative;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+form .corps-formulaire .gauche input {
+margin-top: 5px;
+padding: 10px 5px 10px 30px;
+border: 1px solid rgb(38, 37, 37);
+outline-color: brown;
+border-radius: 5px;
+}
+
+form .corps-formulaire .gauche i {
+position: absolute;
+left: 0;
+top: 25px;
+padding: 9px 8px;
+color: brown;
+}
+
+form .corps-formulaire .droite {
+margin-left: 40px;
+} 
+
+form .corps-formulaire .droite .groupe {
+height: 100%;  
+} 
+
+form .corps-formulaire .droite .groupe textarea {
+margin-top: 5px;
+padding: 10px;
+background-color: rgb(38, 37, 37);
+color: #fff;
+border: 2px solid brown;
+border-radius: 5px;
+outline: none;
+resize: none;
+height: 72%;
+}
+
+form .pied-formulaire button {
+    margin-top: 10px;
+    background-color: brown;
+    color: #fff;
+    font-size: 15px;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+    transition: transform 0.5s;
+}
+
+form .pied-formulaire button:hover {
+    transform: scale(1.05);   
+}
+
+@media screen and (max-width:700px) {
+
+    nav {
+        justify-content: center;
+    }
+
+    nav ul {
+        display: none;
+    }
+
+    form {
+        margin-top: 7%;
+        border-radius: 1%;
+    }
+
+    form .corps-formulaire .droite{
+        margin-left: 0px;
+    }   
+}
+    
