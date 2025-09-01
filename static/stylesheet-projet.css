@@ -1,9 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&family=Roboto+Condensed&display=swap');
 
 body {
     padding: 0 2%;
     margin: 0;
-    font-family: 'Oswald', sans-serif;
     background-color: rgb(96, 90, 90);
 }
 

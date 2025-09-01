@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&family=Roboto+Condensed&display=swap');
-
 body {
     padding: 0 2%;
     margin: 0;
@@ -7,7 +5,6 @@ body {
 } 
 
 nav {
-    font-family: 'Oswald', sans-serif;
     margin-top: 0%;
     padding: auto;
     display: flex;
@@ -148,14 +145,11 @@ form button:hover {
     nav ul {
         display: none;
     }
-
     form {
-        margin-top: 7%;
-        border-radius: 1%;
+        width: 95%;
+        max-width: 100%;
+        margin: 2rem auto;
+        border-radius: 0.5rem;
     }
-
-    form .corps-formulaire .droite{
-        margin-left: 0px;
-    }   
 }
     
