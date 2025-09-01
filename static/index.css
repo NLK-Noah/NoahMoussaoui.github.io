@@ -1,0 +1,347 @@
+/* ==== BASE ==== */
+body {
+    margin: 0;
+    font-family: 'Jersey 20', sans-serif;
+    background-color: #000;
+    color: white;
+}
+
+.particle {
+    position: absolute;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.6);
+    pointer-events: none; /* Les particules ne doivent pas interagir avec la souris */
+    animation: float 2s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: scale(0.5);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+}
+
+/* === Section de présentation === */
+.presentation {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 6rem 2rem;
+    color: white;
+    text-align: center;
+    background: linear-gradient(45deg, #000000, #444444);
+    background-size: 200% 200%;
+    animation: gradientAnimation 3s ease infinite;
+    overflow: hidden;
+    z-index: 1;
+  }
+
+  .presentation p {
+  margin-top: 10px;
+  max-width: 100%;
+  width: 100%;
+  }
+
+  
+  /* Le fond avec les émojis */
+  .emoji-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* ➤ derrière le contenu */
+    pointer-events: none; /* ➤ les émojis ne bloquent pas les clics */
+  }
+  
+  .emoji-container {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    gap: 1.5rem;
+    animation: floatEmojis 8s ease-in-out infinite;
+  }
+  
+  .emoji {
+    font-size: 3rem;
+    animation: bounce 4s infinite alternate;
+    transition: transform 0.3s ease;
+  }
+  
+  .emoji:hover {
+    transform: scale(1.2);
+  }
+  
+  /* Animation dégradé de fond */
+  @keyframes gradientAnimation {
+    0% {
+      background-position: 200% 200%;
+    }
+    50% {
+      background-position: 0% 0%;
+    }
+    100% {
+      background-position: 200% 200%;
+    }
+  }
+  
+  /* Animation de flottement des émojis */
+  @keyframes floatEmojis {
+    0% {
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+    50% {
+      transform: translate(-50%, -52%) rotate(15deg);
+    }
+    100% {
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+  }
+  
+  /* Animation de rebond */
+  @keyframes bounce {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  
+
+
+
+/* ==== HEADER ==== */
+.headers {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 3rem;
+    background-color: #000;
+}
+
+.Photoprofil {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.headers img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.headers h1 {
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+}
+
+.nav-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-links a {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #aaa;
+}
+
+/* ==== CAROUSEL ==== */
+.Carousel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 4rem 2rem;
+    gap: 1rem;
+    width: 100%;
+    overflow: hidden;
+}
+
+.carousel-track {
+    display: flex;
+    width: 100%;
+    max-width: 1000px;
+    overflow: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+}
+
+.card {
+    flex: 0 0 100%;
+    max-width: 100%;
+    background-color: white;
+    color: black;
+    border-radius: 2rem;
+    padding: 2rem;
+    scroll-snap-align: center;
+    box-shadow: 0 8px 24px rgba(255, 255, 255, 0.1);
+    margin: 0 auto;
+    box-sizing: border-box;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.card:first-child {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.card h1 {
+  font-size: clamp(1.2rem, 2vw, 2rem);
+}
+
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    background-color: #666;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.dot.active {
+    background-color: white;
+}
+
+.carousel-controls {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.carousel-btn {
+    background: #222;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    font-size: 1.5rem;
+    transition: background 0.3s ease;
+}
+
+.carousel-btn:hover {
+    background: #444;
+}
+
+
+
+/* ==== FOOTER ==== */
+footer {
+    bottom: 0;
+    text-align: center;
+    padding: 2rem 0;
+    font-size: 0.9rem;
+    background-color: #000;
+    color: white;
+}
+
+/* ==== RESPONSIVE DESIGN ==== */
+@media (max-width: 1024px) {
+  .presentation p {
+    width: 90%;
+    font-size: 1.1rem;
+  }
+
+  .carousel-track {
+    max-width: 90%;
+  }
+
+  .card {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .headers {
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    text-align: center;
+  }
+
+  .Photoprofil {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 1rem;
+  }
+
+  .presentation {
+    flex-direction: column;
+    padding: 3rem 1rem;
+  }
+
+  .emoji {
+    font-size: 2rem;
+  }
+
+  .card {
+    max-width: 100%;
+    padding: 1rem;
+  }
+
+  .carousel-controls {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 480px) {
+  .headers h1 {
+    font-size: 1.2rem;
+  }
+
+  .card h1 {
+    font-size: 1.5rem;
+  }
+
+  .carousel-btn {
+    width: 35px;
+    height: 35px;
+    font-size: 1.2rem;
+  }
+
+  .emoji {
+    font-size: 1.5rem;
+  }
+}
+
