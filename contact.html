@@ -47,74 +47,27 @@
             </ul>
         </nav>
         
-        <form action="">
-            <h1>
-                Contactez-moi
-            </h1>
+        <!-- Formulaire -->
+        <form action="https://formspree.io/f/xjkeoazp" method="POST">
+          <label>
+            Votre Nom :<br>
+            <input type="text" name="Nom" required>
+          </label>
+          <br><br>
 
-            <div class="séparation"></div>
-            <div class="corps-formulaire">
+          <label>
+            Votre Prénom :<br>
+            <input type="text" name="Prénom" required>
+          </label>
+          <br><br>
 
-                <div class="gauche">
+          <label>
+            Votre message :<br>
+            <textarea name="message" rows="5" required></textarea>
+          </label>
+          <br><br>
 
-                    <div class="groupe">
-                        
-                        <label>
-                            Prénom
-                        </label>
-
-                        <input type="texte">
-
-                        <i class="fa fa-user" aria-hidden="true"></i>
-
-                     </div>
-
-                    <div class="groupe">
-                        
-                        <label>
-                            Adresse e-mail
-                        </label>
-
-                        <input type="text">
-
-                        <i class="fa fa-envelope" aria-hidden="true"></i>
-
-                    </div>
-
-                    <div class="groupe">
-
-                        <label > 
-                            Numéro de téléphone
-                        </label>
-
-                        <input type="text">
-                        <i class="fa fa-mobile" aria-hidden="true"></i>
-
-                    </div>
-
-                </div>
-
-                <div class="droite">
-
-                    <div class="groupe">
-                       <label>
-                        Message
-                    </label>
-                        
-                    <textarea placeholder="Saisissez le message ici ..."></textarea>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div class="pied-formulaire" align="center">
-                <button>
-                    Envoyer le message
-                </button>
-            </div>
-
+          <button type="submit">Envoyer</button>
         </form>
     </body>
 
