@@ -51,7 +51,6 @@ body {
 
 .nav-links a:hover {
     color: #aaa;
-    font-size: 1.5rem;
 }
 
 .no-style-link {
@@ -352,14 +351,6 @@ footer {
         display: flex; /* Affiche les liens lorsque le menu est activé */
     }
 
-    .menu-toggle {
-        display: block; /* Affiche le bouton hamburger */
-        cursor: pointer;
-        font-size: 1.5rem;
-        color: white;
-        background: none;
-        border: none;
-    }
     .headers h1 {
         font-size: 1.5rem;
     }

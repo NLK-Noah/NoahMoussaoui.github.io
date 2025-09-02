@@ -159,6 +159,7 @@ body {
 .nav-links a {
     color: white;
     font-weight: bold;
+    font-size: 1.3rem;
     text-decoration: none;
     transition: color 0.3s ease;
 }
@@ -180,91 +181,86 @@ body {
 
 /* ==== CAROUSEL ==== */
 .Carousel {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 4rem 2rem;
-    gap: 1rem;
-    width: 100%;
-    overflow: hidden;
+    max-width: 100%; /* Limite la largeur du carrousel à 100% de l'écran */
+    overflow: hidden; /* Empêche le débordement horizontal */
+    margin: 0 auto; /* Centre le carrousel */
 }
 
 .carousel-track {
     display: flex;
-    width: 100%;
-    max-width: 1000px;
-    overflow: hidden;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
+    gap: 1rem; /* Espacement entre les cartes */
+    transition: transform 0.3s ease; /* Animation fluide pour les slides */
+    width: 100%; /* Assure que le track ne dépasse pas */
 }
 
 .card {
-    flex: 0 0 100%;
-    max-width: 100%;
-    background-color: white;
-    color: black;
-    border-radius: 2rem;
-    padding: 2rem;
-    scroll-snap-align: center;
-    box-shadow: 0 8px 24px rgba(255, 255, 255, 0.1);
-    margin: 0 auto;
-    box-sizing: border-box;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.5s ease-in-out;
-}
-
-.card:first-child {
-    opacity: 1;
-    pointer-events: auto;
-}
-
-.card h1 {
-  font-size: clamp(1.2rem, 2vw, 2rem);
-}
-
-.carousel-dots {
-    display: flex;
-    justify-content: center;
-    gap: 0.5rem;
-    margin-top: 1rem;
-}
-
-.dot {
-    width: 10px;
-    height: 10px;
-    background-color: #666;
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.dot.active {
-    background-color: white;
-}
-
-.carousel-controls {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-top: 1.5rem;
-}
-
-.carousel-btn {
-    background: #222;
+    flex: 0 0 calc(100% / 3); /* Chaque carte prend 1/3 de la largeur visible */
+    max-width: calc(100% / 3); /* Empêche les cartes de dépasser */
+    box-sizing: border-box; /* Inclut les paddings et bordures dans la largeur */
+    padding: 1rem;
+    background: #111;
+    border-radius: 0.5rem;
+    text-align: center;
     color: white;
-    border: none;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-    font-size: 1.5rem;
-    transition: background 0.3s ease;
 }
 
-.carousel-btn:hover {
-    background: #444;
+.card img {
+    width: 100%; /* Les images remplissent la carte */
+    height: auto; /* Conserve les proportions */
+    border-radius: 0.5rem;
+}
+
+/* ==== RÉSEAUX SOCIAUX ==== */
+.social-media {
+    display: flex;
+    justify-content: center; /* Centre les icônes horizontalement */
+    gap: 1.5rem; /* Espacement entre les icônes */
+    margin: 2rem auto; /* Ajoute un espacement au-dessus et en dessous */
+}
+
+.social-media a {
+    display: inline-block;
+    width: 60px; /* Taille des icônes */
+    height: 60px;
+    border-radius: 50%; /* Forme ronde */
+    overflow: hidden; /* Coupe les débordements */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Ombre subtile */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation fluide */
+}
+
+.social-media a:hover {
+    transform: scale(1.2); /* Agrandit légèrement au survol */
+}
+
+/* Couleurs spécifiques pour chaque réseau */
+.social-media a:nth-child(1) img { /* LinkedIn */
+    box-shadow: 0 0 10px #0077b5, 0 0 20px #0077b5, 0 0 30px #0077b5; /* Couche lumineuse bleue */
+}
+
+.social-media a:nth-child(1):hover img {
+    box-shadow: 0 0 15px #0077b5, 0 0 25px #0077b5, 0 0 40px #0077b5; /* Intensifie l'effet au survol */
+}
+
+.social-media a:nth-child(2) img { /* GitHub */
+    box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff; /* Couche lumineuse blanche */
+}
+
+.social-media a:nth-child(2):hover img {
+    box-shadow: 0 0 15px #fff, 0 0 25px #fff, 0 0 40px #fff; /* Intensifie l'effet au survol */
+}
+
+.social-media a:nth-child(3) img { /* Instagram */
+    box-shadow: 0 0 10px #c13584, 0 0 20px #c13584, 0 0 30px #c13584; /* Couche lumineuse rose */
+}
+
+.social-media a:nth-child(3):hover img {
+    box-shadow: 0 0 15px #c13584, 0 0 25px #c13584, 0 0 40px #c13584; /* Intensifie l'effet au survol */
+}
+
+.social-media img {
+    width: 100%; /* Remplit le conteneur */
+    height: 100%;
+    object-fit: cover; /* Ajuste l'image pour qu'elle soit bien cadrée */
 }
 
 
@@ -280,147 +276,126 @@ footer {
 }
 
 /* ==== RESPONSIVE DESIGN ==== */
+
+/* Écrans ≤ 900px */
 @media screen and (max-width: 900px) {
     .headers {
-        flex-direction: column;
+        flex-direction: column; /* Empile les éléments */
         padding: 1rem;
         gap: 1rem;
         text-align: center;
     }
-    .Photoprofil {
-        justify-content: center;
-        gap: 0.7rem;
-    }
+
     .headers img {
-        width: 40px;
-        height: 40px;
+        width: 70px; /* Taille moyenne pour la photo de profil */
+        height: 70px;
     }
+
     .headers h1 {
-        font-size: 1.2rem;
+        font-size: 1.5rem; /* Taille adaptée pour le titre */
     }
+
     .nav-links {
-        flex-direction: column;
+        flex-direction: column; /* Empile les liens */
         gap: 1rem;
         align-items: center;
         width: 100%;
         margin-top: 1rem;
     }
-    .presentation {
-        flex-direction: column;
-        padding: 3rem 1rem;
+
+    .social-media {
+        gap: 1.2rem; /* Réduit légèrement l'espacement entre les icônes */
     }
-    .carousel-track {
-        max-width: 100vw;
-    }
-    .card {
-        padding: 0.7rem;
-        font-size: 0.95rem;
-    }
-    .carousel-btn {
-        width: 36px;
-        height: 36px;
-        font-size: 1.3rem;
-    }
-    .carousel-dots {
-        gap: 0.3rem;
-    }
-    footer {
-        font-size: 0.8rem;
-        padding: 1rem 0;
+
+    .social-media a {
+        width: 50px; /* Réduit légèrement la taille des icônes */
+        height: 50px;
     }
 }
 
+/* Écrans ≤ 600px */
 @media screen and (max-width: 600px) {
+   body {
+        overflow-x: hidden; /* Empêche le défilement horizontal */
+        margin: 0; /* Supprime les marges par défaut */
+        padding: 0; /* Supprime les paddings par défaut */
+    }
     .headers {
+        flex-direction: column; 
+        align-items: center; 
         padding: 0.5rem;
+        gap: 0.5rem;
+        text-align: center;
     }
     .headers img {
-        width: 32px;
-        height: 32px;
+        width: 80px;
+        height: 80px;
     }
-    .headers h1 {
-        font-size: 1rem;
-    }
-    .nav-links {
+
+    .Photoprofil {
+        display: flex;
+        flex-direction: column; /* Empile la photo et le texte */
+        align-items: center;
         gap: 0.5rem;
     }
-    .presentation {
-        padding: 2rem 0.5rem;
+    .nav-links {
+        display: flex; 
+        flex-direction: row;
+        flex-wrap: wrap;
+        font-size: 1.3rem;
+        gap: 1rem; 
+        justify-content: center; 
+        width: 100%; 
     }
-    .carousel-track {
-        max-width: 100vw;
+
+    .nav-links.active {
+        display: flex; /* Affiche les liens lorsque le menu est activé */
+    }
+    .headers h1 {
+        font-size: 1.5rem;
     }
     .card {
-        padding: 0.4rem;
-        font-size: 0.9rem;
+        flex: 0 0 100%; /* Chaque carte prend toute la largeur visible */
+        max-width: 100%;
     }
-    .carousel-btn {
-        width: 32px;
-        height: 32px;
-        font-size: 1.1rem;
+    .social-media {
+        gap: 1rem; /* Réduit l'espacement entre les icônes */
     }
-    .carousel-dots {
-        gap: 0.2rem;
-    }
-    footer {
-        font-size: 0.7rem;
-        padding: 0.5rem 0;
+
+    .social-media a {
+        width: 45px; /* Réduit encore la taille des icônes */
+        height: 45px;
     }
 }
 
+/* Écrans ≤ 400px */
 @media screen and (max-width: 400px) {
     .headers {
         padding: 0.3rem;
         gap: 0.3rem;
     }
-    .Photoprofil {
-        gap: 0.3rem;
-    }
+
     .headers img {
-        width: 24px;
-        height: 24px;
+        width: 40px; /* Taille réduite pour la photo de profil */
+        height: 40px;
     }
+
     .headers h1 {
-        font-size: 0.8rem;
+        font-size: 1rem; /* Réduit encore la taille du titre */
     }
+
     .nav-links {
-        gap: 0.3rem;
+        gap: 0.5rem; /* Réduit l'espacement entre les liens */
         margin-top: 0.5rem;
     }
-    .presentation {
-        width: 100%;
-        padding: 2rem 0.2rem;
-        margin: 0 auto;
-        margin-left: 2rem;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        box-sizing: border-box;
-        text-align: center;
+
+    .social-media {
+        gap: 0.8rem; /* Réduit l'espacement entre les icônes */
     }
-    .carousel-track {
-        max-width: 100vw;
-    }
-    .card {
-        padding: 0.2rem;
-        font-size: 0.85rem;
-    }
-    .carousel-btn {
-        width: 32px;
-        height: 32px;
-        font-size: 1.1rem;
-    }
-    .carousel-dots {
-        gap: 0.2rem;
-    }
-    .footer {
-        width: 100%;
-        font-size: 0.6rem;
-        padding: 0.3rem 0;
-        margin: 0;
-        text-align: center;
-        box-sizing: border-box;
+
+    .social-media a {
+        width: 40px; /* Taille minimale des icônes */
+        height: 40px;
     }
 }
 
