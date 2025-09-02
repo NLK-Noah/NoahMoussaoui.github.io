@@ -564,6 +564,9 @@ footer {
         margin: 0rem;
         border-radius: 1rem;
     }
+    .social-media {
+        gap: 3rem; /* Réduit davantage l'espacement entre les icônes */
+    }
      footer {
         margin: 0;
         font-size: 0.7rem; /* Réduit la taille de la police */
