@@ -44,12 +44,14 @@ body {
 .nav-links a {
     color: white;
     font-weight: bold;
+    font-size: 1.2rem;
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 .nav-links a:hover {
     color: #aaa;
+    font-size: 1.5rem;
 }
 
 .no-style-link {
@@ -228,7 +230,7 @@ form button:hover {
 }
 
 .social-media a:nth-child(2):hover img {
-    box-shadow: 0 0 15px #000, 0 0 25px #000, 0 0 40px #000; /* Intensifie l'effet au survol */
+    box-shadow: 0 0 15px #ffffff, 0 0 25px #fff, 0 0 40px #fff; /* Intensifie l'effet au survol */
 }
 
 .social-media a:nth-child(3) img { /* Instagram */
@@ -357,7 +359,7 @@ footer {
         border: none;
     }
     .headers h1 {
-        font-size: 1rem;
+        font-size: 1.5rem;
     }
     form {
         padding: 1rem;
