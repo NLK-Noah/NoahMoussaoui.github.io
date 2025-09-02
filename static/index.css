@@ -181,9 +181,14 @@ body {
 
 /* ==== CAROUSEL ==== */
 .Carousel {
-    max-width: 100%; /* Limite la largeur du carrousel à 100% de l'écran */
-    overflow: hidden; /* Empêche le débordement horizontal */
-    margin: 0 auto; /* Centre le carrousel */
+  position: relative;
+  max-width: 800px;
+  margin: auto;
+}
+
+.carousel-viewport {
+  overflow: hidden;   /* cache les cartes qui débordent */
+  width: 100%;
 }
 
 .Carousel h1 {
@@ -192,19 +197,35 @@ body {
 }
 
 .carousel-track {
-    display: flex;
-    gap: 1rem; /* Espacement entre les cartes */
-    transition: transform 0.3s ease; /* Animation fluide pour les slides */
-    width: 100%; /* Assure que le track ne dépasse pas */
+    position: relative;
+    width: 100%;
+    height: 350px; /* même hauteur que tes cartes */
 }
 
 .card {
-    flex: 0 0 90%;
-        max-width: 90%;
-        background: grey;
-        margin: 1.5rem;
-        border-radius: 1rem;
+    position: absolute; /* pour superposer et permettre l'effet fade */
+    top: 0;
+    left: 50%;          /* centre horizontalement */
+    transform: translateX(-50%);
+    width: 90%;         /* largeur de la carte */
+    max-width: 500px;   /* largeur maximale */
+    height: 200px;       /* prend toute la hauteur du carousel */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+    padding: 1rem;
+    background: #111;
+    border-radius: 0.5rem;
+    text-align: center;
+    color: white;
 }
+
+.card.active {
+    opacity: 1;
+    pointer-events: auto;
+    z-index: 1;
+}
+
 
 .card img {
     width: 100%; /* Les images remplissent la carte */
