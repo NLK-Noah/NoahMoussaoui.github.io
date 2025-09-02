@@ -1,7 +1,10 @@
+// ======= CAROUSEL =======
+
 const cards = document.querySelectorAll('.card');
 const nextBtn = document.querySelector('.next-btn');
 const prevBtn = document.querySelector('.prev-btn');
 const dotsContainer = document.querySelector('.carousel-dots');
+const track = document.querySelector('.carousel-track');
 
 let currentIndex = 0;
 
@@ -20,6 +23,7 @@ cards.forEach((_, i) => {
 
 const dots = document.querySelectorAll('.dot');
 
+// Fonction pour mettre à jour le carousel
 function updateCarousel() {
     cards.forEach((card, i) => {
         card.classList.toggle('active', i === currentIndex);
@@ -29,7 +33,7 @@ function updateCarousel() {
     dots[currentIndex].classList.add('active');
 }
 
-// Navigation
+// Navigation boutons
 nextBtn.addEventListener('click', () => {
     currentIndex = (currentIndex + 1) % cards.length;
     updateCarousel();
@@ -42,11 +46,11 @@ prevBtn.addEventListener('click', () => {
 
 // Swipe tactile
 let startX = 0;
-cards[0].parentElement.addEventListener('touchstart', (e) => {
+track.addEventListener('touchstart', (e) => {
     startX = e.touches[0].clientX;
 });
 
-cards[0].parentElement.addEventListener('touchend', (e) => {
+track.addEventListener('touchend', (e) => {
     const endX = e.changedTouches[0].clientX;
     if (endX < startX - 50) {
         currentIndex = (currentIndex + 1) % cards.length;
@@ -58,3 +62,29 @@ cards[0].parentElement.addEventListener('touchend', (e) => {
 
 // Initialisation
 updateCarousel();
+
+// Auto-slide toutes les 5 secondes
+const autoSlideDelay = 5000;
+let autoSlide = setInterval(() => {
+    currentIndex = (currentIndex + 1) % cards.length;
+    updateCarousel();
+}, autoSlideDelay);
+
+// Stop auto-slide au survol et reprend au mouseleave
+track.addEventListener('mouseenter', () => clearInterval(autoSlide));
+track.addEventListener('mouseleave', () => {
+    autoSlide = setInterval(() => {
+        currentIndex = (currentIndex + 1) % cards.length;
+        updateCarousel();
+    }, autoSlideDelay);
+});
+
+// ======= BACKGROUND DE LA PRÉSENTATION =======
+
+const bgImages = document.querySelectorAll(".presentation-background img");
+let currentBg = 0;
+
+setInterval(() => {
+    bgImages.forEach((img, i) => img.classList.toggle("active", i === currentBg));
+    currentBg = (currentBg + 1) % bgImages.length;
+}, 3000);

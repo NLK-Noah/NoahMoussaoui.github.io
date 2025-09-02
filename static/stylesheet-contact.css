@@ -304,13 +304,6 @@ footer {
         font-size: 0.8rem; /* Réduit légèrement la taille de la police */
         padding: 1rem 0; /* Réduit le padding vertical */
     }
-    .social-media {
-        gap: 1.2rem; /* Réduit légèrement l'espacement entre les icônes */
-    }
-    .social-media img {
-        width: 50px; /* Réduit légèrement la taille des icônes */
-        height: 50px;
-    }
 }
 
 @media screen and (max-width: 600px) {

@@ -6,28 +6,6 @@ body {
     color: white;
 }
 
-.particle {
-    position: absolute;
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.6);
-    pointer-events: none; /* Les particules ne doivent pas interagir avec la souris */
-    animation: float 2s ease-in-out infinite;
-}
-
-@keyframes float {
-    0% {
-        transform: scale(0.5);
-        opacity: 1;
-    }
-    50% {
-        transform: scale(1);
-        opacity: 0.5;
-    }
-    100% {
-        transform: scale(0.5);
-        opacity: 0;
-    }
-}
 
 /* === Section de présentation === */
 .presentation {
@@ -38,12 +16,35 @@ body {
     padding: 6rem 2rem;
     color: white;
     text-align: center;
-    background: linear-gradient(45deg, #000000, #444444);
-    background-size: 200% 200%;
-    animation: gradientAnimation 3s ease infinite;
     overflow: hidden;
-    z-index: 1;
-  }
+}
+
+.presentation-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.presentation-background img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+
+.presentation-background img.active {
+    opacity: 1;
+}
+
 
   .presentation p {
   margin-top: 10px;
@@ -83,19 +84,7 @@ body {
     transform: scale(1.2);
   }
   
-  /* Animation dégradé de fond */
-  @keyframes gradientAnimation {
-    0% {
-      background-position: 200% 200%;
-    }
-    50% {
-      background-position: 0% 0%;
-    }
-    100% {
-      background-position: 200% 200%;
-    }
-  }
-  
+
   /* Animation de flottement des émojis */
   @keyframes floatEmojis {
     0% {
@@ -252,6 +241,7 @@ body {
 }
 
 .carousel-btn {
+  top: 150px;
   background-color: white;
   border: none;
   border-radius: 50%;
@@ -274,7 +264,8 @@ body {
 /* Les points (dots) */
 .carousel-dots {
   position: absolute;
-  bottom: 10px; /* sous les flèches */
+  top: 300px;
+  bottom: 10px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -302,7 +293,6 @@ body {
 
 /* ==== RÉSEAUX SOCIAUX EN LIGNE ==== */
 .social-media {
-    margin-top: 5rem;
     display: flex;
     flex-direction: row; /* Place les icônes en ligne */
     justify-content: center; /* Centre les icônes horizontalement */
