@@ -559,9 +559,9 @@ footer {
     }
     .card {
         flex: 0 0 90%;
-        max-width: 90%;
+        max-width: 80%;
         background: grey;
-        margin: 1.5rem;
+        margin: 0rem;
         border-radius: 1rem;
     }
      footer {
