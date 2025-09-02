@@ -186,6 +186,11 @@ body {
     margin: 0 auto; /* Centre le carrousel */
 }
 
+.Carousel h1 {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
 .carousel-track {
     display: flex;
     gap: 1rem; /* Espacement entre les cartes */
