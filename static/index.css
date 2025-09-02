@@ -53,66 +53,6 @@ body {
   }
 
   
-  /* Le fond avec les émojis */
-  .emoji-background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1; /* ➤ derrière le contenu */
-    pointer-events: none; /* ➤ les émojis ne bloquent pas les clics */
-  }
-  
-  .emoji-container {
-    position: absolute;
-    top: 30%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    gap: 1.5rem;
-    animation: floatEmojis 8s ease-in-out infinite;
-  }
-  
-  .emoji {
-    font-size: 3rem;
-    animation: bounce 4s infinite alternate;
-    transition: transform 0.3s ease;
-  }
-  
-  .emoji:hover {
-    transform: scale(1.2);
-  }
-  
-
-  /* Animation de flottement des émojis */
-  @keyframes floatEmojis {
-    0% {
-      transform: translate(-50%, -50%) rotate(0deg);
-    }
-    50% {
-      transform: translate(-50%, -52%) rotate(15deg);
-    }
-    100% {
-      transform: translate(-50%, -50%) rotate(0deg);
-    }
-  }
-  
-  /* Animation de rebond */
-  @keyframes bounce {
-    0% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-20px);
-    }
-    100% {
-      transform: translateY(0);
-    }
-  }
-  
-
-
 
 /* ==== HEADER ==== */
 .headers {
