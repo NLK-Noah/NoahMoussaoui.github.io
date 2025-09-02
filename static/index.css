@@ -360,8 +360,11 @@ footer {
         font-size: 1.5rem;
     }
     .card {
-        flex: 0 0 100%; /* Chaque carte prend toute la largeur visible */
-        max-width: 100%;
+        flex: 0 0 90%;
+        max-width: 90%;
+        background: grey;
+        margin: 1.5rem;
+        border-radius: 1rem;
     }
     .social-media {
         gap: 1rem; /* Réduit l'espacement entre les icônes */
