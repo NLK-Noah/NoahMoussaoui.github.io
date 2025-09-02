@@ -13,7 +13,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 6rem 2rem;
+    padding: 10rem 10rem;
     color: white;
     text-align: center;
     overflow: hidden;
@@ -32,13 +32,14 @@ body {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* contiendront tout l'image sans la rogner */
     transform: translate(-50%, -50%);
     opacity: 0;
     transition: opacity 1s ease-in-out;
 }
+
 
 
 .presentation-background img.active {
@@ -164,42 +165,44 @@ body {
 
 /* Conteneur global du carousel */
 .carousel-container {
-  position: relative;
-  width: 100%;
-  max-width: 600px; /* adapte selon ton design */
-  margin: auto;
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+    z-index: 1; /* container principal */
 }
 
-/* Boutons précédent / suivant */
 .carousel-controls {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 12px;
-  z-index: 10;
+    position: absolute;
+    top: 85%;              /* juste sous le carousel */
+    left: 50%;              
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    z-index: 100;           /* s'assure que les flèches sont au-dessus */
 }
+
 
 .carousel-btn {
-  top: 150px;
-  background-color: white;
-  border: none;
-  border-radius: 50%;
-  width: 32px;
-  height: 32px;
-  font-size: 16px;
-  cursor: pointer;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.3s, transform 0.2s;
+    background-color: white;
+    border: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s, transform 0.2s;
+    z-index: 101;          /* garantit qu’ils sont cliquables */
 }
 
 .carousel-btn:hover {
-  background-color: #f0f0f0;
-  transform: scale(1.1);
+    background-color: #f0f0f0;
+    transform: scale(1.1);
 }
+
+
 
 /* Les points (dots) */
 .carousel-dots {
@@ -442,6 +445,11 @@ footer {
     .nav-links.active {
         display: flex; /* Affiche les liens lorsque le menu est activé */
     }
+    .presentation-background img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* remplissage complet */
+    }
     .headers h1 {
         font-size: 1.5rem;
     }
@@ -449,7 +457,6 @@ footer {
         flex: 0 0 90%;
         max-width: 90%;
         background: grey;
-        margin: 1.5rem;
         border-radius: 1rem;
     }
     .social-media {
