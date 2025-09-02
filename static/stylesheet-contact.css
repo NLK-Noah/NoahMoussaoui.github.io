@@ -1,4 +1,7 @@
 /* ==== BASE ==== */
+* {
+    box-sizing: border-box;
+}
 body {
     margin: 0;
     font-family: 'Jersey 20', sans-serif;
@@ -69,10 +72,22 @@ form {
   margin: 3rem auto;
   padding: 5rem;
   border-radius: 1rem;
-  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.1);
+  box-shadow: 
+    0 0 10px rgba(0, 191, 255, 0.8), /* Couche lumineuse proche */
+    0 0 20px rgba(0, 191, 255, 0.6), /* Couche moyenne */
+    0 0 30px rgba(0, 191, 255, 0.4); /* Couche externe */
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  transition: box-shadow 0.3s ease;
+}
+
+form:hover,
+form:focus-within {
+  box-shadow: 
+    0 0 15px rgba(0, 191, 255, 1), /* Couche lumineuse proche */
+    0 0 30px rgba(0, 191, 255, 0.8), /* Couche moyenne */
+    0 0 45px rgba(0, 191, 255, 0.6); /* Couche externe */
 }
 
 /* Labels et champs */
@@ -122,6 +137,108 @@ form button:hover {
   box-shadow: 0 4px 15px rgba(0, 191, 255, 0.6);
 }
 
+/* ==== RÉSEAUX SOCIAUX EN LIGNE ==== */
+.social-media {
+    display: flex;
+    flex-direction: row; /* Place les icônes en ligne */
+    justify-content: center; /* Centre les icônes horizontalement */
+    align-items: center; /* Centre verticalement */
+    gap: 1.5rem; /* Espacement entre les icônes */
+    margin: 2rem auto; /* Ajoute un espacement au-dessus et en dessous */
+}
+
+.social-media a {
+    display: flex;
+    flex-direction: column; /* Empile l'icône et le texte */
+    align-items: center; /* Centre l'icône et le texte */
+    text-decoration: none; /* Supprime le soulignement */
+    color: white; /* Couleur par défaut du texte */
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: transform 0.3s ease, text-shadow 0.3s ease; /* Animation fluide */
+}
+
+.social-media a:hover {
+    transform: scale(1.1); /* Agrandit légèrement au survol */
+}
+
+/* Couleurs spécifiques pour chaque réseau */
+.social-media a:nth-child(1) { /* LinkedIn */
+    text-shadow: 
+        0 0 5px #0077b5, /* Couche lumineuse proche */
+        0 0 10px #0077b5, /* Couche moyenne */
+        0 0 15px #0077b5; /* Couche externe */
+}
+
+.social-media a:nth-child(1):hover {
+    text-shadow: 
+        0 0 10px #0077b5, 
+        0 0 20px #0077b5, 
+        0 0 30px #0077b5; /* Intensifie l'effet au survol */
+}
+
+.social-media a:nth-child(2) { /* GitHub */
+    text-shadow: 
+        0 0 5px #000, 
+        0 0 10px #000, 
+        0 0 15px #000;
+}
+
+.social-media a:nth-child(2):hover {
+    text-shadow: 
+        0 0 10px #000, 
+        0 0 20px #000, 
+        0 0 30px #000;
+}
+
+.social-media a:nth-child(3) { /* Instagram */
+    text-shadow: 
+        0 0 5px #c13584, 
+        0 0 10px #c13584, 
+        0 0 15px #c13584;
+}
+
+.social-media a:nth-child(3):hover {
+    text-shadow: 
+        0 0 10px #c13584, 
+        0 0 20px #c13584, 
+        0 0 30px #c13584;
+}
+
+.social-media img {
+    width: 60px; /* Taille des icônes */
+    height: 60px;
+    border-radius: 50%; /* Forme ronde */
+    object-fit: cover; /* Ajuste l'image pour qu'elle soit bien cadrée */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Ombre subtile par défaut */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation fluide */
+}
+
+/* Ajout des couleurs spécifiques pour chaque logo */
+.social-media a:nth-child(1) img { /* LinkedIn */
+    box-shadow: 0 0 10px #0077b5, 0 0 20px #0077b5, 0 0 30px #0077b5; /* Couche lumineuse bleue */
+}
+
+.social-media a:nth-child(1):hover img {
+    box-shadow: 0 0 15px #0077b5, 0 0 25px #0077b5, 0 0 40px #0077b5; /* Intensifie l'effet au survol */
+}
+
+.social-media a:nth-child(2) img { /* GitHub */
+    box-shadow: 0 0 10px #fffdfd, 0 0 20px #fffefe, 0 0 30px #ffffff; /* Couche lumineuse noire */
+}
+
+.social-media a:nth-child(2):hover img {
+    box-shadow: 0 0 15px #000, 0 0 25px #000, 0 0 40px #000; /* Intensifie l'effet au survol */
+}
+
+.social-media a:nth-child(3) img { /* Instagram */
+    box-shadow: 0 0 10px #c13584, 0 0 20px #c13584, 0 0 30px #c13584; /* Couche lumineuse rose */
+}
+
+.social-media a:nth-child(3):hover img {
+    box-shadow: 0 0 15px #c13584, 0 0 25px #c13584, 0 0 40px #c13584; /* Intensifie l'effet au survol */
+}
+
 /* ==== FOOTER ==== */
 footer {
     bottom: 0;
@@ -160,6 +277,12 @@ footer {
         padding: 2rem;
         margin: 2rem auto;
     }
+    form {
+    box-shadow: 
+      0 0 15px rgba(0, 191, 255, 1), /* Couche lumineuse proche */
+      0 0 30px rgba(0, 191, 255, 0.8), /* Couche moyenne */
+      0 0 45px rgba(0, 191, 255, 0.6); /* Couche externe */
+    }
     form input,
     form textarea {
         font-size: 0.95rem;
@@ -175,15 +298,49 @@ footer {
 }
 
 @media screen and (max-width: 600px) {
+    body {
+        overflow-x: hidden; /* Empêche le défilement horizontal */
+        margin: 0; /* Supprime les marges par défaut */
+        padding: 0; /* Supprime les paddings par défaut */
+    }
     .headers {
+        flex-direction: column; 
+        align-items: center; 
         padding: 0.5rem;
+        gap: 0.5rem;
+        text-align: center;
     }
     .headers img {
-        width: 32px;
-        height: 32px;
+        width: 80px;
+        height: 80px;
+    }
+
+    .Photoprofil {
+        display: flex;
+        flex-direction: column; /* Empile la photo et le texte */
+        align-items: center;
+        gap: 0.5rem;
     }
     .nav-links {
-        gap: 0.5rem;
+        display: flex; 
+        flex-direction: row;
+        flex-wrap: wrap; 
+        gap: 1rem; 
+        justify-content: center; 
+        width: 100%; 
+    }
+
+    .nav-links.active {
+        display: flex; /* Affiche les liens lorsque le menu est activé */
+    }
+
+    .menu-toggle {
+        display: block; /* Affiche le bouton hamburger */
+        cursor: pointer;
+        font-size: 1.5rem;
+        color: white;
+        background: none;
+        border: none;
     }
     .headers h1 {
         font-size: 1rem;
@@ -194,13 +351,14 @@ footer {
     }
     form input,
     form textarea {
-        font-size: 0.9rem;
-        padding: 0.5rem 0.7rem;
+        font-size: 0.6rem;
+        padding: 0.1rem 0.1rem;
     }
     form textarea {
-        min-height: 60px;
+        min-height: 5px;
     }
     footer {
+        margin: 0;
         font-size: 0.7rem;
         padding: 0.5rem 0;
     }
@@ -239,7 +397,7 @@ footer {
         padding: 0.3rem 0.4rem;
     }
     form textarea {
-        min-height: 20px;
+        min-height: 5px;
     }
     footer {
         font-size: 0.6rem;
