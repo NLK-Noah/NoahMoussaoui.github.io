@@ -1,35 +1,94 @@
 <!DOCTYPE html>
-
 <html lang="fr">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Jersey+20&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="static/stylesheet-projet.css">
-        <link rel="icon" href="static/images/favicon.png" type="image/png">
-    </head>
-    <body>
-       <div class="headers">
-            <div class="Photoprofil">
-                <a href="static/images/profile.jpg">
-                    <img src="static/images/profile.jpg" alt="photo de profil">
-                </a>
-                <a href="index.html" class="no-style-link"><h1>Noah Moussaoui</h1></a>
-            </div>
-            <!-- =====Lien vers autres pages===== -->
-            <div class="nav-links">
-                <a href="contact.html">Contact</a>
-                <a href="project.html">Projets</a>
-                <a href="static/images/cv.png">Curriculum vitae</a>
-            </div>
-        </div>
-        <h1>WORK IN PROGRESS</h1>
-    </body>
-    <footer>
-        ©2025 Noah Moussaoui All rights reserved
-    </footer>
-</html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jersey+20&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="static/stylesheet-projet.css">
+    <script src="static/videos.js" defer></script>
+    <link rel="icon" href="static/images/favicon.png" type="image/png">
+    <title>Projets</title>
+</head>
 
+<body>
+    <!-- HEADER -->
+    <div class="headers">
+        <div class="Photoprofil">
+            <a href="static/images/profile.jpg">
+                <img src="static/images/profile.jpg" alt="photo de profil">
+            </a>
+            <a href="index.html" class="no-style-link">
+                <h1>Noah Moussaoui</h1>
+            </a>
+        </div>
+        <div class="nav-links">
+            <a href="contact.html">Contact</a>
+            <a href="project.html">Projets</a>
+            <a href="static/images/cv.png">Curriculum vitae</a>
+        </div>
+    </div>
+
+    <!-- CAROUSEL DES PROJETS -->
+    <section class="project-carousel">
+        <div class="carousel-track">
+            <!-- BETag -->
+            <div class="project-card">
+                <img src="static/images/logos/Betag.png" alt="Logo Betag" class="project-logo">
+                <p>Betag est mon tout premier grand projet au sein de l’UCLouvain. Ce projet consiste à la conception
+                    d’un mini babyphone qui communique avec un récepteur parent et le babyphone pour envoyer des informations
+                    telles que la température ou la position du bébé.</p>
+                <div class="media">
+                    <div class="video-container">
+                        <video class="myVideo" autoplay muted loop playsinline width="600">
+                            <source src="static/videos/betag.mp4" type="video/mp4">
+                            Votre navigateur ne supporte pas la vidéo.
+                        </video>
+                        <button class="muteBtn">🔇 Activer le son</button>   
+                    </div>
+                    <!-- Contrôles du carousel -->
+                    <div class="carousel-controls">
+                        <button class="carousel-btn prev">‹</button>
+                        <button class="carousel-btn next">›</button>
+                    </div>
+                </div>
+                <div class="media">
+                    <a href="static/rapport/betag.pdf" target="_blank" rel="noopener noreferrer">📄 Voir le rapport PDF</a>
+                </div>
+                <div class="links">
+                    <a href="https://github.com/NLK-Noah/Be-bi-Project" target="_blank" rel="noopener noreferrer">Code source</a>
+                </div>
+            </div>
+
+            <!--Portfolio-->
+            <div class="project-card">
+                <img src="static/images/favicon.png" alt="Logo Projet2" class="project-logo">
+                <p>Mon propre portfolio en ligne, un site internet fait 100% à la main contenant tout mon parcour professionelle qui me sert de Curriculum </p>
+                <div class="links">
+                    <a href="https://github.com/NLK-Noah/NoahMoussaoui.github.io" target="_blank" rel="noopener noreferrer">Code source</a>
+                </div>
+                <!-- Contrôles du carousel -->
+                <div class="carousel-controls">
+                    <button class="carousel-btn prev">‹</button>
+                    <button class="carousel-btn next">›</button>
+                </div>
+            </div>
+
+            <!-- Projet 3 -->
+        </div>
+
+        <!-- Contrôles du carousel -->
+    
+        <!-- Dots (optionnel) -->
+        <div class="carousel-dots"></div>
+    </section>
+
+</body>
+
+<footer>
+    ©2025 Noah Moussaoui All rights reserved
+</footer>
+
+</html>
