@@ -116,6 +116,7 @@ body {
   margin: auto;
 }
 
+
 .carousel-viewport {
   overflow: hidden;   /* cache les cartes qui débordent */
   width: 100%;
@@ -148,14 +149,29 @@ body {
     border-radius: 0.5rem;
     text-align: center;
     color: white;
+    background: #111;
+    border-radius: 0.5rem;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    /* Effet néon blanc */
+    box-shadow: 
+    0 0 10px #fff, 
+    0 0 20px #fff, 
+    0 0 40px #fff;
+}
+@keyframes neon-box {
+  0%   { box-shadow: none; }
+  50%  { box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #fff; }
+  100% { box-shadow: none; }
 }
 
 .card.active {
-    opacity: 1;
-    pointer-events: auto;
-    z-index: 1;
+  animation: neon-box 0.5s ease-in-out;
+  opacity: 1;
+  pointer-events: auto;
+  z-index: 1;
 }
-
 
 .card img {
     width: 100%; /* Les images remplissent la carte */
@@ -456,7 +472,7 @@ footer {
     .card {
         flex: 0 0 90%;
         max-width: 90%;
-        background: grey;
+        background: #111;
         border-radius: 1rem;
     }
     .social-media {
@@ -497,7 +513,7 @@ footer {
     .card {
         flex: 0 0 90%;
         max-width: 80%;
-        background: grey;
+        background: #111;
         margin: 0rem;
         border-radius: 1rem;
     }

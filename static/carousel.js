@@ -64,7 +64,7 @@ track.addEventListener('touchend', (e) => {
 updateCarousel();
 
 // Auto-slide toutes les 5 secondes
-const autoSlideDelay = 5000;
+const autoSlideDelay = 7000;
 let autoSlide = setInterval(() => {
     currentIndex = (currentIndex + 1) % cards.length;
     updateCarousel();
