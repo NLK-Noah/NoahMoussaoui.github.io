@@ -1,15 +1,18 @@
-const video = document.querySelector(".myVideo");
-const muteBtn = document.querySelector(".muteBtn");
+const videos = document.querySelectorAll(".myVideo");
+const muteBtns = document.querySelectorAll(".muteBtn");
 
-muteBtn.addEventListener("click", () => {
-  if (video.muted) {
-    video.muted = false;
-    muteBtn.textContent = "🔊 Couper le son";
-  } else {
-    video.muted = true;
-    muteBtn.textContent = "🔇 Activer le son";
-  }
+muteBtns.forEach((btn, i) => {
+  btn.addEventListener("click", () => {
+    if (videos[i].muted) {
+      videos[i].muted = false;
+      btn.textContent = "🔊 Couper le son";
+    } else {
+      videos[i].muted = true;
+      btn.textContent = "🔇 Activer le son";
+    }
+  });
 });
+
 document.addEventListener("DOMContentLoaded", () => {
     const track = document.querySelector(".carousel-track");
     const slides = Array.from(track.children);
