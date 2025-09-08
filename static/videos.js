@@ -1,17 +1,22 @@
-const videos = document.querySelectorAll(".myVideo");
 const muteBtns = document.querySelectorAll(".muteBtn");
 
-muteBtns.forEach((btn, i) => {
+muteBtns.forEach((btn) => {
+  const video = btn.closest(".video-container").querySelector(".myVideo");
+
+  // Si jamais une vidéo n'existe pas dans le container, on évite l'erreur
+  if (!video) return;
+
   btn.addEventListener("click", () => {
-    if (videos[i].muted) {
-      videos[i].muted = false;
+    if (video.muted) {
+      video.muted = false;
       btn.textContent = "🔊 Couper le son";
     } else {
-      videos[i].muted = true;
+      video.muted = true;
       btn.textContent = "🔇 Activer le son";
     }
   });
 });
+
 
 document.addEventListener("DOMContentLoaded", () => {
     const track = document.querySelector(".carousel-track");
