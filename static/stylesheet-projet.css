@@ -76,10 +76,10 @@ body {
     text-align: center;
 }
 
-.project-card img {
+.project-card  img {
     display: block;
     margin: 0 auto 0.5rem auto;
-    max-width: 150px;
+    width: 10rem;
     border-radius: 0.5rem;
 }
 
@@ -100,7 +100,7 @@ body {
 }
 
 .project-card .media img {
-    width: 600px;
+    width: 750px;
 }
 
 .project-card video {
@@ -348,7 +348,7 @@ footer {
         font-size: 1.5rem; /* Réduit légèrement la taille du titre */
     }
     .project-card img {
-        max-width: 100px;
+        max-width: 300px;
     }
     .project-card p {
         font-size: 0.9rem;
