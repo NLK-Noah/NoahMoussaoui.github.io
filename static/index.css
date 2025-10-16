@@ -352,16 +352,14 @@ body {
     box-shadow: 0 0 15px #c13584, 0 0 25px #c13584, 0 0 40px #c13584; /* Intensifie l'effet au survol */
 }
 
-
-
 /* ==== FOOTER ==== */
 footer {
-    bottom: 0;
     text-align: center;
-    padding: 2rem 0;
-    font-size: 0.9rem;
+    padding: 1rem 0;
     background-color: #000;
     color: white;
+    font-size: 0.8rem;
+    margin-top: 2rem;
 }
 
 /* ==== RESPONSIVE DESIGN ==== */
