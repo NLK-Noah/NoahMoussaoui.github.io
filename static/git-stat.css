@@ -1,0 +1,198 @@
+/* ==== BASE ==== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Jersey 20', sans-serif;
+  background-color: #000;
+  color: white;
+}
+
+/* ==== HEADER ==== */
+.headers {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 3rem;
+  background-color: #000;
+  border-bottom: 1px solid #111;
+}
+
+.Photoprofil {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.headers img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px soloid white;
+  transition: transform 0.3s ease;
+}
+
+.headers img:hover {
+  transform: scale(1.05);
+}
+
+.headers h1 {
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  color: #ffff;
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  color: white;
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.no-style-link {
+  color: inherit;        
+  text-decoration: none; 
+  cursor: pointer;       
+}
+
+.nav-links a:hover {
+  color: white;;
+}
+
+/* ==== MAIN ==== */
+main {
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+main h2 {
+  font-size: 2.5rem;
+  color: #ffff ;
+  margin-top: 0;
+  margin-bottom: 2rem;
+}
+
+/* ==== CONTENEUR STATS ==== */
+#gitStatsContainer {
+  background: #111;
+  color: white;
+  width: 90%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow:
+    0 0 10px rgba(0, 191, 255, 0.6),
+    0 0 20px rgba(0, 191, 255, 0.4),
+    0 0 40px rgba(0, 191, 255, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#gitStatsContainer:hover {
+  transform: scale(1.02);
+  box-shadow:
+    0 0 15px rgba(0, 191, 255, 0.8),
+    0 0 30px rgba(0, 191, 255, 0.6),
+    0 0 50px rgba(0, 191, 255, 0.4);
+}
+
+/* ==== TABLE DES STATS ==== */
+.stats-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1.5rem;
+  text-align: left;
+}
+
+.stats-table th {
+  color: #ffff;
+  font-size: 1.2rem;
+  padding: 1rem;
+  border-bottom: 2px solid #ffff;
+}
+
+.stats-table td {
+  padding: 0.8rem 1rem;
+  border-bottom: 1px solid #222;
+}
+
+.stats-table tr:hover {
+  background: rgba(0, 191, 255, 0.1);
+  transition: background 0.3s ease;
+}
+
+/* ==== ANIMATION DE CHARGEMENT ==== */
+@keyframes loading-pulse {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+#gitStatsContainer.loading {
+  text-align: center;
+  color: #00bfff;
+  animation: loading-pulse 1.5s infinite ease-in-out;
+}
+
+/* ==== FOOTER ==== */
+footer {
+  text-align: center;
+  padding: 2rem 0;
+  font-size: 0.9rem;
+  background-color: #000;
+  color: white;
+  border-top: 1px solid #111;
+}
+
+/* ==== RESPONSIVE ==== */
+@media (max-width: 900px) {
+  .headers {
+    flex-direction: column;
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  main h2 {
+    font-size: 2rem;
+  }
+
+  #gitStatsContainer {
+    width: 95%;
+    padding: 1.5rem;
+  }
+
+  .stats-table th, .stats-table td {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .headers img {
+    width: 70px;
+    height: 70px;
+  }
+
+  .nav-links a {
+    font-size: 1rem;
+  }
+
+  .stats-table th, .stats-table td {
+    padding: 0.5rem;
+  }
+}
