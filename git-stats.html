@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Jersey+20&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="static/git-stat.css">
+        <link rel="icon" href="static/images/favicon.png" type="image/png">
+    </head>
+    
+    <body>
+
+       <div class="headers">
+            <div class="Photoprofil">
+                <a href="index.html">
+                    <img src="static/images/profile.jpg" alt="photo de profil">
+                </a>
+                <a href="index.html" class="no-style-link"><h1>Noah Moussaoui</h1></a>
+            </div>
+            <!-- =====Lien vers autres pages===== -->
+            <div class="nav-links">
+                <a href="contact.html">Contact</a>
+                <a href="project.html">Projets</a>
+                <a href="static/images/cv.png">Curriculum vitae</a>
+                <a href="parcours.html">Parcours</a>
+                <a href="git-stats.html">Git Stats</a>
+            </div>
+        </div>
+
+        <main>
+            <h2>Mes statistiques GitHub globales</h2>
+
+            <div id="gitStatsContainer">
+                <div class="stats-summary">
+                    <h3>Total des contributions : <span id="totalContrib">...</span></h3>
+                </div>
+
+                <canvas id="gitChart"></canvas>
+            </div>
+        </main>
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="data/git-stats.js"></script>
+    </body>
+
+     <footer>
+        ©2025 Noah Moussaoui All rights reserved
+    </footer>
+</html>
