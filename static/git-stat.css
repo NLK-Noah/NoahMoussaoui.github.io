@@ -1,16 +1,17 @@
-/* ==== BASE ==== */
-* {
-  box-sizing: border-box;
-}
-
+/* ============
+  🌑 BASE
+============ */
 body {
   margin: 0;
   font-family: 'Jersey 20', sans-serif;
   background-color: #000;
   color: white;
+  overflow-x: hidden;
 }
 
-/* ==== HEADER ==== */
+/* ============
+  🔝 HEADER
+============ */
 .headers {
   display: flex;
   justify-content: space-between;
@@ -27,11 +28,11 @@ body {
 }
 
 .headers img {
-  width: 50px;
-  height: 50px;
+  width: 55px;
+  height: 55px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px soloid white;
+  border: 2px;
   transition: transform 0.3s ease;
 }
 
@@ -42,7 +43,6 @@ body {
 .headers h1 {
   font-size: clamp(1rem, 2.5vw, 1.5rem);
   color: #ffff;
-  text-decoration: none;
 }
 
 .nav-links {
@@ -57,110 +57,104 @@ body {
   text-decoration: none;
   transition: color 0.3s ease;
 }
+
+.nav-links a:hover,
+.no-style-link:hover {
+  color: #00bfff;
+}
+
 .no-style-link {
-  color: inherit;        
-  text-decoration: none; 
-  cursor: pointer;       
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
 }
 
-.nav-links a:hover {
-  color: white;;
-}
-
-/* ==== MAIN ==== */
-main {
-  padding: 3rem 2rem;
+/* ============
+  📊 TITRES
+============ */
+h1 {
   text-align: center;
+  margin-top: 2rem;
+  font-size: 2.3rem;
+  color: #00bfff;
 }
 
-main h2 {
-  font-size: 2.5rem;
-  color: #ffff ;
-  margin-top: 0;
+#total {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #ccc;
   margin-bottom: 2rem;
 }
 
-/* ==== CONTENEUR STATS ==== */
-#gitStatsContainer {
-  background: #111;
-  color: white;
+/* ===========================
+   📊 GRAPHIQUES
+=========================== */
+
+/* Conteneur principal */
+.chart-container {
   width: 90%;
   max-width: 900px;
-  margin: 0 auto;
-  padding: 2rem;
-  border-radius: 1rem;
-  box-shadow:
-    0 0 10px rgba(0, 191, 255, 0.6),
-    0 0 20px rgba(0, 191, 255, 0.4),
-    0 0 40px rgba(0, 191, 255, 0.2);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin: 30px auto;
+  background: #0a0a0a;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 0 25px rgba(0, 191, 255, 0.2);
+  animation: fadeInUp 0.8s ease forwards;
+  opacity: 0;
+  transform: translateY(20px);
 }
 
-#gitStatsContainer:hover {
-  transform: scale(1.02);
-  box-shadow:
-    0 0 15px rgba(0, 191, 255, 0.8),
-    0 0 30px rgba(0, 191, 255, 0.6),
-    0 0 50px rgba(0, 191, 255, 0.4);
+/* Canvas (tous les graphes) */
+canvas {
+  width: 100% !important;
+  height: 320px !important; /* ✅ taille parfaite pour les écrans standard */
 }
 
-/* ==== TABLE DES STATS ==== */
-.stats-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 1.5rem;
-  text-align: left;
+/* Petits graphiques côte à côte */
+.chart-container.small {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
-.stats-table th {
-  color: #ffff;
-  font-size: 1.2rem;
-  padding: 1rem;
-  border-bottom: 2px solid #ffff;
+.chart-container.small canvas {
+  width: 48% !important;
+  height: 260px !important; /* ✅ plus équilibré */
 }
 
-.stats-table td {
-  padding: 0.8rem 1rem;
-  border-bottom: 1px solid #222;
+/* Heatmap */
+#chartHeatmap {
+  width: 75%;
+  max-width: 850px;
+  margin: 40px auto;
+  border-radius: 10px;
+  background: #0a0a0a;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.stats-table tr:hover {
-  background: rgba(0, 191, 255, 0.1);
-  transition: background 0.3s ease;
-}
-
-/* ==== ANIMATION DE CHARGEMENT ==== */
-@keyframes loading-pulse {
-  0%, 100% {
-    opacity: 0.3;
-  }
-  50% {
+/* ============
+  ⚙️ ANIMATIONS
+============ */
+@keyframes fadeInUp {
+  to {
     opacity: 1;
+    transform: translateY(0);
   }
 }
 
-#gitStatsContainer.loading {
-  text-align: center;
-  color: #00bfff;
-  animation: loading-pulse 1.5s infinite ease-in-out;
-}
-
-/* ==== FOOTER ==== */
-footer {
-  text-align: center;
-  padding: 2rem 0;
-  font-size: 0.9rem;
-  background-color: #000;
-  color: white;
-  border-top: 1px solid #111;
-}
-
-/* ==== RESPONSIVE ==== */
+/* ============
+  📱 RESPONSIVE
+============ */
 @media (max-width: 900px) {
   .headers {
     flex-direction: column;
-    text-align: center;
+    gap: 1rem;
     padding: 1rem;
+    text-align: center;
   }
 
   .nav-links {
@@ -168,31 +162,35 @@ footer {
     justify-content: center;
   }
 
-  main h2 {
+  h1 {
     font-size: 2rem;
   }
 
-  #gitStatsContainer {
-    width: 95%;
-    padding: 1.5rem;
+  canvas {
+    height: 280px !important;
   }
 
-  .stats-table th, .stats-table td {
-    font-size: 0.9rem;
+  .chart-container.small canvas {
+    width: 100% !important;
+  }
+
+  #chartHeatmap {
+    width: 90%;
+    padding: 15px;
   }
 }
 
 @media (max-width: 600px) {
   .headers img {
-    width: 70px;
-    height: 70px;
+    width: 65px;
+    height: 65px;
   }
 
   .nav-links a {
     font-size: 1rem;
   }
 
-  .stats-table th, .stats-table td {
-    padding: 0.5rem;
+  h1 {
+    font-size: 1.8rem;
   }
 }
